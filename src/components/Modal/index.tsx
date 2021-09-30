@@ -23,7 +23,7 @@ const Modal: React.FC<ModalProps> = ({ data, onClose, visible }) => {
     <Container className={visible ? "show" : ""}>
       <ModalContent className={visible ? "show" : ""}>
         <ModalHeader>
-          <h2>Resultado para {data.cep}</h2>
+          <h2>Cep {data.cep}</h2>
           <button onClick={onClose}>&times;</button>
         </ModalHeader>
         <ModalBody>

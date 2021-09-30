@@ -12,4 +12,10 @@ export const Container = styled.div`
   img {
     width: 300px;
   }
+
+  flex-direction: column-reverse;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;

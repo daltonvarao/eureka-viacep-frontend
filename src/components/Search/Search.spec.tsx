@@ -1,8 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Search from ".";
-import AxiosMockAdapter from "axios-mock-adapter";
 import api from "../../services/api";
+import AxiosMockAdapter from "axios-mock-adapter";
 
 const axiosMockAdaper = new AxiosMockAdapter(api);
 
@@ -22,7 +22,7 @@ const expectedResponse = {
 axiosMockAdaper.onGet("/adresses/68030340").reply(200, expectedResponse);
 axiosMockAdaper
   .onGet("/adresses/68030341")
-  .reply(404, { errors: [{ message: "Cep not found" }] });
+  .reply(404, { errors: [{ message: "Cep não encontrado" }] });
 
 describe("Search component", () => {
   beforeEach(() => {
@@ -70,7 +70,7 @@ describe("Search component", () => {
     userEvent.click(button);
 
     await waitFor(() => {
-      const modalTitle = screen.getByText(/Resultado para 68030340/);
+      const modalTitle = screen.getByText(/Cep 68030340/);
       expect(modalTitle).toBeInTheDocument();
     });
   });
@@ -86,10 +86,13 @@ describe("Search component", () => {
 
     await waitFor(() => {
       const modalTitle = screen.queryByRole("heading", {
-        name: /Resultado/,
+        name: /Cep 68030341/,
       });
 
       expect(modalTitle).not.toBeInTheDocument();
     });
+
+    const notFoundMsg = screen.getByText(/Cep não encontrado/);
+    expect(notFoundMsg).toBeInTheDocument();
   });
 });

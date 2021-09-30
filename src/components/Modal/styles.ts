@@ -34,12 +34,17 @@ export const Container = styled.div`
 
 export const ModalContent = styled.div`
   background: #fff;
-  min-width: 480px;
+
+  max-width: 350px;
   padding: 1rem;
   border-radius: 0.5rem;
 
   &.show {
     animation: ${slideDown} 0.2s ease-in;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: 480px;
   }
 `;
 
@@ -50,7 +55,7 @@ export const ModalHeader = styled.div`
   margin-bottom: 1rem;
 
   h2 {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   button {
@@ -61,9 +66,11 @@ export const ModalHeader = styled.div`
     cursor: pointer;
     color: #0009;
     transition: color 0.4s;
+  }
 
-    :hover {
-      color: #000;
+  @media screen and (min-width: 768px) {
+    h2 {
+      font-size: 22px;
     }
   }
 `;
@@ -85,6 +92,7 @@ export const ReadOnlyInput = styled(Input).attrs(() => ({
   readOnly: true,
 }))`
   margin-bottom: 0.5rem;
+  padding: 0.5rem;
 `;
 
 export const ModalBody = styled.div`

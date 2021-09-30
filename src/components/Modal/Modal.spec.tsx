@@ -24,7 +24,7 @@ describe("Search component", () => {
 
   it("should the component contains a title", () => {
     const title = screen.getByRole("heading", {
-      name: "Resultado para 68030-340",
+      name: "Cep 68030-340",
     });
 
     expect(title).toBeInTheDocument();
