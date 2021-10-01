@@ -8,6 +8,7 @@ import {
   ModalHeader,
   ReadOnlyInput,
   InputGroup,
+  Row,
 } from "./styles";
 
 interface ModalProps {
@@ -27,12 +28,38 @@ const Modal: React.FC<ModalProps> = ({ data, onClose, visible }) => {
           <button onClick={onClose}>&times;</button>
         </ModalHeader>
         <ModalBody>
+          <Row>
+            <InputGroup>
+              <label>UF</label>
+              <ReadOnlyInput
+                type="text"
+                placeholder="UF"
+                defaultValue={data.uf}
+              />
+            </InputGroup>
+            <InputGroup>
+              <label>Localidade</label>
+              <ReadOnlyInput
+                type="text"
+                placeholder="Localidade"
+                defaultValue={data.localidade}
+              />
+            </InputGroup>
+          </Row>
           <InputGroup>
             <label>Bairro</label>
             <ReadOnlyInput
               type="text"
               placeholder="Bairro"
               defaultValue={data.bairro}
+            />
+          </InputGroup>
+          <InputGroup>
+            <label>Logradouro</label>
+            <ReadOnlyInput
+              type="text"
+              placeholder="Logradouro"
+              defaultValue={data.logradouro}
             />
           </InputGroup>
           <InputGroup>
@@ -51,54 +78,32 @@ const Modal: React.FC<ModalProps> = ({ data, onClose, visible }) => {
               defaultValue={data.complemento}
             />
           </InputGroup>
-          <InputGroup>
-            <label>DDD</label>
-            <ReadOnlyInput
-              type="text"
-              placeholder="DDD"
-              defaultValue={data.ddd}
-            />
-          </InputGroup>
-          <InputGroup>
-            <label>GIA</label>
-            <ReadOnlyInput
-              type="text"
-              placeholder="GIA"
-              defaultValue={data.gia}
-            />
-          </InputGroup>
-          <InputGroup>
-            <label>Localidade</label>
-            <ReadOnlyInput
-              type="text"
-              placeholder="Localidade"
-              defaultValue={data.localidade}
-            />
-          </InputGroup>
-          <InputGroup>
-            <label>Logradouro</label>
-            <ReadOnlyInput
-              type="text"
-              placeholder="Logradouro"
-              defaultValue={data.logradouro}
-            />
-          </InputGroup>
-          <InputGroup>
-            <label>SIAFI</label>
-            <ReadOnlyInput
-              type="text"
-              placeholder="SIAFI"
-              defaultValue={data.siafi}
-            />
-          </InputGroup>
-          <InputGroup>
-            <label>UF</label>
-            <ReadOnlyInput
-              type="text"
-              placeholder="UF"
-              defaultValue={data.uf}
-            />
-          </InputGroup>
+          <Row>
+            <InputGroup>
+              <label>DDD</label>
+              <ReadOnlyInput
+                type="text"
+                placeholder="DDD"
+                defaultValue={data.ddd}
+              />
+            </InputGroup>
+            <InputGroup>
+              <label>SIAFI</label>
+              <ReadOnlyInput
+                type="text"
+                placeholder="SIAFI"
+                defaultValue={data.siafi}
+              />
+            </InputGroup>
+            <InputGroup>
+              <label>GIA</label>
+              <ReadOnlyInput
+                type="text"
+                placeholder="GIA"
+                defaultValue={data.gia}
+              />
+            </InputGroup>
+          </Row>
         </ModalBody>
       </ModalContent>
     </Container>

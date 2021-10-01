@@ -88,11 +88,17 @@ export const InputGroup = styled.div`
   }
 `;
 
+export const Row = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
 export const ReadOnlyInput = styled(Input).attrs(() => ({
   readOnly: true,
 }))`
   margin-bottom: 0.5rem;
   padding: 0.5rem;
+  width: 100%;
 `;
 
 export const ModalBody = styled.div`
